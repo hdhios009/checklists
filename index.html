@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Чек-листы на все случаи</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif}
+body{background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;color:#1a1a2e;line-height:1.6}
+header{text-align:center;padding:50px 20px 30px;color:white}
+header h1{font-size:2.5rem;margin-bottom:10px}
+header p{font-size:1.1rem;opacity:.9}
+.container{max-width:1100px;margin:0 auto;padding:0 20px 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin:30px 0}
+.card{background:rgba(255,255,255,.95);border-radius:20px;padding:30px;box-shadow:0 10px 40px rgba(0,0,0,.1);transition:.3s;backdrop-filter:blur(10px)}
+.card:hover{transform:translateY(-5px);box-shadow:0 15px 50px rgba(0,0,0,.15)}
+.card-icon{font-size:2.5rem;margin-bottom:10px}
+.card h3{font-size:1.2rem;margin-bottom:8px}
+.card p{color:#555;font-size:.9rem;margin-bottom:15px}
+.price{font-size:1.5rem;font-weight:700;color:#667eea;margin-bottom:15px}
+.price small{font-size:.8rem;font-weight:400;color:#888}
+.btn{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:1rem;cursor:pointer;transition:.3s;width:100%;font-weight:600}
+.btn:hover{transform:scale(1.02);box-shadow:0 5px 20px rgba(102,126,234,.4)}
+.contact-form{background:rgba(255,255,255,.95);border-radius:20px;padding:30px;margin:30px 0;box-shadow:0 10px 40px rgba(0,0,0,.1)}
+.contact-form h2{margin-bottom:20px}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 16px;margin-bottom:12px;border:2px solid #e0e0e0;border-radius:12px;font-size:1rem;transition:.3s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:#667eea;outline:none}
+.contact-form button{background:linear-gradient(135deg,#667eea,#764ba2);color:white;border:none;padding:14px 30px;border-radius:50px;font-size:1rem;cursor:pointer;font-weight:600;width:100%}
+.reviews{background:rgba(255,255,255,.95);border-radius:20px;padding:30px;margin:30px 0;box-shadow:0 10px 40px rgba(0,0,0,.1)}
+.reviews h2{margin-bottom:20px}
+.review{padding:15px 0;border-bottom:1px solid #eee}
+.review:last-child{border-bottom:none}
+.review-stars{color:#ffc107;margin-bottom:5px}
+.review-text{font-style:italic;color:#555}
+.review-name{font-weight:700;margin-top:5px;color:#1a1a2e;font-size:.9rem}
+footer{text-align:center;padding:30px;color:rgba(255,255,255,.6);font-size:.85rem}
+.notification{display:none;background:#27ae60;color:white;padding:15px 25px;border-radius:12px;margin:20px 0;text-align:center;font-weight:600}
+</style>
+</head>
+<body>
+<header>
+<h1>📋 Чек-листы на все случаи</h1>
+<p>Готовые шаблоны для любых задач — от переезда до стартапа</p>
+</header>
+<div class="container">
+
+<div class="notification" id="notif">✅ Спасибо! После оплаты PDF придёт на email. Проверьте почту.</div>
+
+<div class="grid">
+<div class="card"><div class="card-icon">🏠</div><h3>Переезд без стресса</h3><p>48 пунктов: от упаковки до распаковки. Ничего не забудешь!</p><div class="price">199 ₽</div><button class="btn" onclick="pay('checklist1')">Купить</button></div>
+<div class="card"><div class="card-icon">🔧</div><h3>Идеальный ремонт</h3><p>План ремонта: смета, сроки, контакты — всё под контролем</p><div class="price">249 ₽</div><button class="btn" onclick="pay('checklist2')">Купить</button></div>
+<div class="card"><div class="card-icon">✈️</div><h3>Путешествие мечты</h3><p>76 пунктов: документы, аптечка, маршрут, бюджет</p><div class="price">149 ₽</div><button class="btn" onclick="pay('checklist3')">Купить</button></div>
+<div class="card"><div class="card-icon">💼</div><h3>Собеседование мечты</h3><p>Как подготовиться, что спросить, как ответить. Шанс ×2</p><div class="price">199 ₽</div><button class="btn" onclick="pay('checklist4')">Купить</button></div>
+<div class="card"><div class="card-icon">🚀</div><h3>Стартап с нуля</h3><p>33 шага от идеи до первых клиентов</p><div class="price">299 ₽</div><button class="btn" onclick="pay('checklist5')">Купить</button></div>
+<div class="card"><div class="card-icon">📚</div><h3>Учёба на отлично</h3><p>Чек-лист студента: сессия, курсач, диплом</p><div class="price">149 ₽</div><button class="btn" onclick="pay('checklist6')">Купить</button></div>
+</div>
+
+<div class="reviews">
+<h2>⭐ Отзывы</h2>
+<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Чек-лист по переезду спас! Действительно забыла про квитанции — успела заказать вовремя»</div><div class="review-name">Анна, Москва</div></div>
+<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Ремонт сделал на 20% дешевле плана. Всё заранее купил, не переплачивал»</div><div class="review-name">Дмитрий, ремонт квартиры</div></div>
+<div class="review"><div class="review-stars">⭐⭐⭐⭐⭐</div><div class="review-text">«Купил чек-лист собеседования — прошёл с первого раза в IT-компанию!»</div><div class="review-name">Максим, Java-разработчик</div></div>
+</div>
+
+<div class="contact-form">
+<h2>💬 Оставить отзыв или задать вопрос</h2>
+<form action="https://formspree.io/f/mldjqnnq" method="POST">
+<input type="hidden" name="_subject" value="Чек-листы">
+<input type="text" name="name" placeholder="Ваше имя" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" placeholder="Напишите нам..." rows="4" required></textarea>
+<button type="submit">Отправить</button>
+</form>
+</div>
+
+</div>
+<footer>© 2026 ProjectMax — all tools for life</footer>
+
+<script>
+function pay(product) {
+  var prices = {checklist1:199, checklist2:249, checklist3:149, checklist4:199, checklist5:299, checklist6:149};
+  window.location.href='https://money.yandex.ru/eshop.xml?shopId=1356997&sum='+prices[product]+'&orderNumber=chk_'+Date.now();
+}
+</script>
+</body>
+</html>
